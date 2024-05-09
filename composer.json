@@ -1,0 +1,29 @@
+{
+	"name"        : "jmf/time",
+	"type"        : "library",
+	"license"     : "MIT",
+	"description" : "Allows to retrieve and measure time.",
+	"require"     : {
+		"php" : ">=8.3",
+		"psr/clock": "^1.0"
+	},
+	"require-dev": {
+		"ext-xdebug"                : "*",
+		"phing/phing"               : "^2.17",
+		"phpunit/phpunit"           : "^11.1",
+		"phpmd/phpmd"               : "^2.15",
+		"squizlabs/php_codesniffer" : "^3.5",
+		"rector/rector": "^1.0",
+		"phpstan/phpstan": "^1.10"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"Jmf\\Time\\" : "src/"
+		}
+	},
+	"autoload-dev" : {
+		"psr-4" : {
+			"Jmf\\Time\\" : "tests/unit/src/"
+		}
+	}
+}
