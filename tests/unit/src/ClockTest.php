@@ -2,7 +2,6 @@
 
 namespace Jmf\Time;
 
-use DateTimeInterface;
 use PHPUnit\Framework\TestCase;
 
 class ClockTest extends TestCase
@@ -18,41 +17,41 @@ class ClockTest extends TestCase
     {
         $result = $this->clock->getDateTime();
 
-        $this->assertInstanceOf(DateTimeInterface::class, $result);
+        $this->assertGreaterThan(0, $result->getTimestamp());
     }
 
     public function testGetDateTimeString(): void
     {
         $result = $this->clock->getDateTimeString();
 
-        $this->assertIsString($result);
+        $this->assertNotEmpty($result);
     }
 
     public function testGetDateString(): void
     {
         $result = $this->clock->getDateString();
 
-        $this->assertIsString($result);
+        $this->assertNotEmpty($result);
     }
 
     public function testGetTimeString(): void
     {
         $result = $this->clock->getTimeString();
 
-        $this->assertIsString($result);
+        $this->assertNotEmpty($result);
     }
 
     public function testGetTimestamp(): void
     {
         $result = $this->clock->getTimestamp();
 
-        $this->assertIsInt($result);
+        $this->assertGreaterThan(0, $result);
     }
 
     public function testGetMicrotime(): void
     {
         $result = $this->clock->getMicrotime();
 
-        $this->assertIsFloat($result);
+        $this->assertGreaterThan(0.0, $result);
     }
 }

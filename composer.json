@@ -2,7 +2,7 @@
 	"name"        : "jmf/time",
 	"type"        : "library",
 	"license"     : "MIT",
-	"description" : "Allows to retrieve and measure time.",
+	"description" : "Time package to retrieve and measure time. Provides an implementation of the PSR-20 clock interface.",
 	"require"     : {
 		"php" : ">=8.3",
 		"psr/clock": "^1.0"
