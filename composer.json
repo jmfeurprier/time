@@ -25,5 +25,8 @@
 		"psr-4" : {
 			"Jmf\\Time\\" : "tests/unit/src/"
 		}
+	},
+	"provide": {
+		"psr/clock-implementation": "^1.0"
 	}
 }
