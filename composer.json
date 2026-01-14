@@ -8,13 +8,11 @@
 		"psr/clock": "^1.0"
 	},
 	"require-dev": {
-		"ext-xdebug"                : "*",
-		"phing/phing"               : "^2.17",
-		"phpunit/phpunit"           : "^11.1",
-		"phpmd/phpmd"               : "^2.15",
-		"squizlabs/php_codesniffer" : "^3.5",
-		"rector/rector": "^1.0",
-		"phpstan/phpstan": "^1.10"
+		"phpunit/phpunit": "^12.5",
+		"squizlabs/php_codesniffer": "^4.0",
+		"rector/rector": "^2.3",
+		"phpstan/phpstan": "^2.1",
+		"overtrue/phplint": "^9.7"
 	},
 	"autoload" : {
 		"psr-4" : {
@@ -23,7 +21,7 @@
 	},
 	"autoload-dev" : {
 		"psr-4" : {
-			"Jmf\\Time\\" : "tests/unit/src/"
+			"Jmf\\Time\\" : "tests/src/"
 		}
 	},
 	"provide": {

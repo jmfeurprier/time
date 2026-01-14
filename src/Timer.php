@@ -4,17 +4,15 @@ namespace Jmf\Time;
 
 class Timer implements TimerInterface
 {
-    private readonly ClockInterface $clock;
-
     private TimerStatus $status = TimerStatus::READY;
 
     private ?float $startMicrotime = null;
 
     private float $elapsedSeconds = 0.0;
 
-    public function __construct(ClockInterface $clock = null)
-    {
-        $this->clock = $clock ?? new Clock();
+    public function __construct(
+        private readonly ClockInterface $clock = new Clock(),
+    ) {
     }
 
     public function start(): void
