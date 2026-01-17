@@ -95,3 +95,22 @@ sleep(1);
 // Will output something like "0.0"
 echo $timer->getElapsed();
 ```
+
+Note: prefer instantiating a new `Timer` object over sharing/injecting a `Timer` instance, as it would lead to side effects.
+
+An injectable `TimerFactory` is offered for convenience:
+
+```php
+<?php
+
+use Jmf\Time\Timer;
+use Jmf\Time\TimerFactory;
+
+$timerFactory = new TimerFactory();
+
+$timer = $timerFactory->create();
+
+$timer->start();
+
+// ...
+```
