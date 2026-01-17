@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Jmf\Time;
 
 use DateTimeImmutable;
@@ -7,34 +9,49 @@ use DateTimeInterface;
 
 class Clock implements ClockInterface
 {
+    private const string FORMAT_DATE = 'Y-m-d';
+
+    private const string FORMAT_TIME = 'H:i:s';
+
     public function now(): DateTimeImmutable
     {
-        return new DateTimeImmutable();
+        return $this->doGetNow();
     }
 
     public function getDateTime(): DateTimeInterface
     {
-        return $this->now();
+        return $this->doGetNow();
     }
 
     public function getDateTimeString(): string
     {
-        return "{$this->getDateString()} {$this->getTimeString()}";
+        $now = $this->doGetNow();
+
+        return sprintf(
+            '%s %s',
+            $now->format(self::FORMAT_DATE),
+            $now->format(self::FORMAT_TIME),
+        );
     }
 
     public function getDateString(): string
     {
-        return $this->now()->format('Y-m-d');
+        return $this->doGetNow()->format(self::FORMAT_DATE);
     }
 
     public function getTimeString(): string
     {
-        return $this->now()->format('H:i:s');
+        return $this->doGetNow()->format(self::FORMAT_TIME);
     }
 
     public function getTimestamp(): int
     {
-        return $this->now()->getTimestamp();
+        return $this->doGetNow()->getTimestamp();
+    }
+
+    private function doGetNow(): DateTimeImmutable
+    {
+        return new DateTimeImmutable();
     }
 
     public function getMicrotime(): float

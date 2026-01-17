@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Jmf\Time;
 
 use PHPUnit\Framework\TestCase;
 
-class TimerTest extends TestCase
+final class TimerTest extends TestCase
 {
     private Timer $timer;
 
@@ -19,7 +21,7 @@ class TimerTest extends TestCase
 
         $result = $this->timer->getElapsed();
 
-        $this->assertSame(0.0, $result);
+        $this->assertEqualsWithDelta(0.0, $result, PHP_FLOAT_EPSILON);
     }
 
     public function testGetElapsedReturnsNoDurationWhenStartedThenReset(): void
@@ -32,7 +34,7 @@ class TimerTest extends TestCase
 
         $result = $this->timer->getElapsed();
 
-        $this->assertSame(0.0, $result);
+        $this->assertEqualsWithDelta(0.0, $result, PHP_FLOAT_EPSILON);
     }
 
     public function testGetElapsedReturnsDurationWhenStarted(): void
